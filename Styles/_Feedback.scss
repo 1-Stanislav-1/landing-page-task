@@ -1,0 +1,407 @@
+@mixin textStyle($size: 16px, $weight: 400, $height: 22px) {
+	font-size: $size;
+	font-weight: $weight;
+	line-height: $height;
+}
+
+@mixin borderHover {
+	&:hover {
+		border: 1px solid #659DBD;
+	}
+}
+
+.feedback {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: inherit;
+	height: 100%;
+	background: rgba(35, 35, 35, .4);
+
+	.feedback__window {
+		position: absolute;
+		top: 176px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 1184px;
+		height: 944px;
+		background: white;
+
+		.feedback__title {
+			margin: 64px 0 0 40px;
+			color: #232323;
+			@include textStyle(32px, 500, 38px);
+		}
+
+		.feedback__close {
+			position: absolute;
+			top: 40px;
+			right: 40px;
+			width: 40px;
+			height: 40px;
+			border: 1px solid #EAEAEA;
+			border-radius: 50%;
+
+			&:hover {
+				border: 1px solid #659DBD;
+
+				path {
+					stroke: #659DBD;
+				}
+			}
+		}
+
+		.feedback__close_active {
+			border: 1px solid #659DBD !important;
+			background: #659DBD !important;
+
+			path {
+				stroke: white !important;
+			}
+		}
+
+		.feedback__form {
+			position: relative;
+			width: 1104px;
+			height: 714px;
+			margin: 64px auto 0;
+
+			.feedback__nameContainer, .feedback__emailContainer {
+				position: relative;
+				display: inline-block;
+
+				label {
+					color: rgba(35, 35, 35, .7);
+					@include textStyle;
+	
+					.feedback__name, .feedback__email {
+						display: block;
+						width: 486px;
+						margin-top: 16px;
+						padding: 21px 24px;
+						border: 1px solid #FAFAFA;
+						color: #232323;
+						@include textStyle;
+						@include borderHover;
+					}
+
+					.feedback__name::placeholder, .feedback__email::placeholder {
+						color: rgba(35, 35, 35, .4);
+						@include textStyle;
+					}
+
+					.feedback__name_error, .feedback__email_error {
+						border: 1px solid #E7717D;
+					}
+				}
+
+				.feedback__nameError, .feedback__emailError {
+					position: absolute;
+					bottom: 16px;
+					right: 16px;
+					width: 32px;
+					height: 32px;
+					background: url('/Source/Icon\(1\).svg');
+				}
+
+				.feedback__nameSuccess, .feedback__emailSuccess {
+					position: absolute;
+					bottom: 20px;
+					right: 20px;
+					width: 24px;
+					height: 24px;
+					background: url('/Source/Vector\ 25.svg') no-repeat center, #A2E0B2;
+					border-radius: 50%;
+				}
+			}
+
+			.feedback__block2 {
+				display: flex;
+				justify-content: space-between;
+				width: 1104px;
+				height: 102px;
+				margin-top: 24px;
+
+				.feedback__phoneContainer {
+					position: relative;
+
+					label {
+						color: rgba(35, 35, 35, .7);
+						@include textStyle;
+		
+						.feedback__phone {
+							display: block;
+							width: 486px;
+							margin-top: 16px;
+							padding: 21px 24px;
+							border: 1px solid #FAFAFA;
+							color: #232323;
+							@include textStyle;
+							@include borderHover;
+						}
+	
+						.feedback__phone::placeholder {
+							color: rgba(35, 35, 35, .4);
+							@include textStyle;
+						}
+
+						.feedback__phone_error {
+							border: 1px solid #E7717D;
+						}
+					}
+					
+					.feedback__phoneError {
+						position: absolute;
+						bottom: 16px;
+						right: 16px;
+						width: 32px;
+						height: 32px;
+						background: url('/Source/Icon\(1\).svg');
+					}
+	
+					.feedback__phoneSuccess {
+						position: absolute;
+						bottom: 20px;
+						right: 20px;
+						width: 24px;
+						height: 24px;
+						background: url('/Source/Vector\ 25.svg') no-repeat center, #A2E0B2;
+						border-radius: 50%;
+					}
+				}
+
+				.feedback__tripContainer {
+					position: relative;
+					width: 536px;
+					height: 102px;
+	
+					.feedback__label {
+						color: rgba(35, 35, 35, .7);
+						@include textStyle;
+					}
+	
+					.feedback__trip {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						width: 534px;
+						height: 64px;
+						margin-top: 16px;
+						border: 1px solid #FAFAFA;
+						user-select: none;
+						color: rgba(35, 35, 35, .4);
+						@include textStyle;
+						@include borderHover;
+	
+						.feedback__tripPlaceholder, .feedback__tripSelection {
+							padding-left: 24px;
+							color: rgba(35, 35, 35, .4);
+							@include textStyle;
+						}
+
+						.feedback__tripSelection {
+							color: #232323;
+							@include textStyle;
+						}
+
+						.feedback__tripPlaceholder_hidden, .feedback__tripSelection_hidden {
+							display: none;
+						}
+	
+						.feedback__listArrow {
+							width: 64px;
+							height: 64px;
+						}
+
+						.feedback__listArrow_active {
+							transform: rotate(180deg);
+
+							path {
+								stroke: #659DBD;
+							}
+
+							circle {
+								stroke: #659DBD;
+							}
+						}
+						
+						.feedback__listArrow_hidden {
+							display: none;
+						}
+
+						.feedback__tripSuccess {
+							width: 24px;
+							height: 24px;
+							margin-right: 20px;
+							background: url('/Source/Vector\ 25.svg') no-repeat center, #A2E0B2;
+							border-radius: 50%;
+						}
+
+						.feedback__tripSuccess_hidden {
+							display: none;
+						}
+					}
+
+					.feedback__trip_active {
+						border: 1px solid #659DBD;
+					}
+
+					.feedback__trip_error {
+						border: 1px solid #E7717D;
+					}
+
+					.feedback__tripList {
+						position: absolute;
+						top: 118px;
+						left: 0;
+						width: 536px;
+						background: white;
+						list-style-type: none;
+
+						.feedback__tripItem {
+							width: 488px;
+							height: 22px;
+							padding: 13px 24px;
+							color:#232323;
+							@include textStyle;
+
+							&:hover {
+								background: #EAEAEA;	
+							}
+						}
+					}
+
+					.feedback__tripList_hidden {
+						display: none;
+					}
+				}
+			}
+
+			.feedback__emailContainer {
+				margin-left: 32px;
+			}
+
+			.feedback__subject {
+				margin-top: 64px;
+
+				.feedback__subject1, .feedback__subject2, .feedback__subject3, .feedback__subject4 {
+					display: inline-block;
+					height: 62px;
+					border: 1px solid #EAEAEA;
+					text-align: center;
+					color: rgba(35, 35, 35, .7);
+					@include textStyle(16px, 400, 62px);
+					@include borderHover;
+				}
+
+				.feedback__subject1 {
+					width: 308px;
+					margin-right: 32px;
+					@include borderHover;
+				}
+
+				.feedback__subject2 {
+					width: 300px;
+					margin-right: 32px;
+					@include borderHover;
+				}
+				
+				.feedback__subject3 {
+					width: 208px;
+					margin-right: 32px;
+					@include borderHover;
+				}
+
+				.feedback__subject4 {
+					width: 170px;
+					@include borderHover;
+				}
+
+				.feedback__subject4_active {
+					background: #659DBD;
+					color: white;
+				}
+			}
+
+			.feedback__questionContainer {
+				width: 1104px;
+				height: 166px;
+				margin-top: 64px;
+
+				label {
+					color: rgba(35, 35, 35, .7);
+					@include textStyle;
+
+					.feedback__question {
+						width: 1054px;
+						height: 84px;
+						margin-top: 16px;
+						padding: 21px 24px;
+						border: 1px solid #EAEAEA;
+						resize: none;
+						color: #232323;
+						@include textStyle;
+						@include borderHover;
+					}
+
+					.feedback__question::placeholder {
+						color: rgba(35, 35, 35, .4);
+						@include textStyle;
+					}
+
+					.feedback__question_error {
+						border: 1px solid #E7717D;
+					}
+				}
+			}
+
+			.feedback__checkboxContainer {
+				display: flex;
+				justify-content: space-between;
+				width: 256px;
+				height: 32px;
+				margin-top: 80px;
+
+					.feedback__checkbox {
+						width: 32px;
+						height: 32px;
+						background: url('/Source/Rectangle\ 7.svg');
+						
+						&:hover {
+							background: url('/Source/Icon\(2\).svg');
+						}
+					}
+
+					.feedback__checkbox_checked {
+						background: url('/Source/Icon\(3\).svg') !important;
+					}
+
+					.feedback__description {
+						color: rgba(35, 35, 35, .7);
+						@include textStyle(16px, 400, 32px);
+				}
+			}
+
+			.feedback__send {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: 321px;
+				height: 64px;
+				background: #659DBD;
+				border: none;
+				color: white;
+				transition: .3s;
+				@include textStyle;
+
+				&:hover {
+					background: #5B8DAA;
+				}
+			}
+		}
+	}
+}
+
+.feedback_hidden {
+	display: none;
+}
